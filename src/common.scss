@@ -1,0 +1,95 @@
+@import './media.scss';
+
+@mixin text($family, $weight, $size, $color) {
+	font-family: $family;
+	font-weight: $weight;
+	font-size: $size;
+	color: $color;
+}
+.button {
+	padding: 17px 48px;
+	color: white;
+	background-color: black;
+	border-radius: 4px;
+	transition: 0.3s;
+	border: none;
+	text-wrap: nowrap;
+	cursor: pointer;
+	transform: scale(1);
+	box-shadow: 0 0 0 black;
+	&:hover {
+		background-color: rgba(241, 129, 40, 1);
+		color: black;
+		transform: scale(1.2);
+		box-shadow: 10px 10px 20px black;
+	}
+	@include media(700) {
+		padding: 15px 40px;
+	}
+	@include media(600) {
+		padding: 13px 35px;
+	}
+}
+.title {
+	@include text(Comfortaa, 400, 36px, rgba(241, 129, 40, 1));
+	position: relative;
+	width: max-content;
+	display: block;
+	transform: scale(1);
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-bottom: 50px;
+	transition: 0.5s;
+	&::before,
+	&::after {
+		content: '';
+		width: 100%;
+		height: 2px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background-color: rgba(241, 129, 40, 1);
+		transform: scale(0);
+		opacity: 0;
+		transition: 0.5s;
+	}
+	&::after {
+		top: 0;
+	}
+	&:hover {
+		transform: scale(1.1);
+		&::before,
+		&::after {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+	@include media(1000) {
+		margin-bottom: 40px;
+	}
+	@include media(900) {
+		margin-bottom: 30px;
+	}
+	@include media(800) {
+		margin-bottom: 20px;
+	}
+	@include media(700) {
+		margin-bottom: 10px;
+	}
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	user-select: none;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 100%;
+	max-width: 1140px;
+}
